@@ -120,25 +120,24 @@ module.exports = async (req, res) => {
   }
 
   const subject = `[Alimentri Contact] ${name}${company ? ` — ${company}` : ""}`;
+  const receivedAt = new Date().toUTCString();
   const text = [
-    `Name: ${name}`,
-    `Email: ${email}`,
+    "New contact form submission — alimentri.com",
+    "",
+    `Name:    ${name}`,
+    `Email:   ${email}`,
     company ? `Company: ${company}` : null,
     "",
     "Message:",
     message,
+    "",
+    `Received: ${receivedAt}`,
+    `Reply to: ${email}`,
   ]
     .filter(Boolean)
     .join("\n");
 
-  const html = `
-    <h2>New contact from alimentri.com</h2>
-    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ""}
-    <p><strong>Message:</strong></p>
-    <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
-  `;
+  const html = buildContactEmailHtml({ name, email, company, message, receivedAt });
 
   const mailOptions = {
     from: `"Alimentri Website" <${user}>`,
@@ -176,4 +175,103 @@ function escapeHtml(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function buildContactEmailHtml({ name, email, company, message, receivedAt }) {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeCompany = escapeHtml(company);
+  const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+  const replySubject = encodeURIComponent(`Re: Your message to Alimentri`);
+  const mailtoEmail = encodeURIComponent(email);
+  const mailtoReply = `mailto:${mailtoEmail}?subject=${replySubject}`;
+
+  const companyRow = company
+    ? `
+          <tr>
+            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;width:120px;vertical-align:top;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Company</td>
+            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;font-size:15px;color:#0f172a;">${safeCompany}</td>
+          </tr>`
+    : "";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Alimentri contact</title>
+</head>
+<body style="margin:0;padding:0;background-color:#eef1f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color:#eef1f6;padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;background-color:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 8px 32px rgba(15,23,42,0.08);">
+          <tr>
+            <td style="background:linear-gradient(135deg,#0e121c 0%,#1a2332 100%);padding:28px 24px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <table role="presentation" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#818cf8);text-align:center;vertical-align:middle;font-weight:800;font-size:18px;color:#042f2e;line-height:40px;">A</td>
+                        <td style="padding-left:12px;vertical-align:middle;">
+                          <div style="font-size:18px;font-weight:700;color:#f8fafc;letter-spacing:-0.02em;">Alimentri</div>
+                          <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#94a3b8;margin-top:2px;">Website contact</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td align="right" style="vertical-align:top;">
+                    <span style="display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(45,212,191,0.15);border:1px solid rgba(45,212,191,0.35);font-size:11px;font-weight:600;color:#5eead4;letter-spacing:0.04em;">New inquiry</span>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:20px 0 0;font-size:15px;line-height:1.5;color:#cbd5e1;">Someone submitted the contact form on <a href="https://www.alimentri.com" style="color:#2dd4bf;text-decoration:none;font-weight:600;">alimentri.com</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding:14px 20px;width:120px;vertical-align:top;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Name</td>
+                  <td style="padding:14px 20px;font-size:15px;font-weight:600;color:#0f172a;">${safeName}</td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 20px;border-top:1px solid #e8ecf4;width:120px;vertical-align:top;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Email</td>
+                  <td style="padding:14px 20px;border-top:1px solid #e8ecf4;font-size:15px;">
+                    <a href="mailto:${mailtoEmail}" style="color:#0d9488;text-decoration:none;font-weight:500;">${safeEmail}</a>
+                  </td>
+                </tr>
+                ${companyRow}
+                <tr>
+                  <td colspan="2" style="padding:20px 20px 8px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Message</td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="padding:0 20px 24px;">
+                    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #14b8a6;border-radius:0 10px 10px 0;padding:16px 18px;font-size:15px;line-height:1.6;color:#334155;">${safeMessage}</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 24px 28px;text-align:center;">
+              <a href="${mailtoReply}" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#14b8a6,#2dd4bf);color:#042f2e;font-size:14px;font-weight:700;text-decoration:none;border-radius:999px;box-shadow:0 4px 14px rgba(20,184,166,0.35);">Reply to ${safeName}</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 24px;background:#f8fafc;border-top:1px solid #e8ecf4;text-align:center;">
+              <p style="margin:0 0 6px;font-size:12px;color:#64748b;">Received ${escapeHtml(receivedAt)} (UTC)</p>
+              <p style="margin:0;font-size:12px;color:#94a3b8;">
+                <a href="https://www.alimentri.com" style="color:#64748b;text-decoration:underline;">alimentri.com</a>
+                · IT Software · Cloud · AI
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
 }

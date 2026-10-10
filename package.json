@@ -1,0 +1,9 @@
+{
+  "name": "alimentri",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Alimentri — premium IT software startup website",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

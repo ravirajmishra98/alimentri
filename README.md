@@ -50,3 +50,20 @@ If the form returns *Could not send message*, check **Vercel → Project → Log
 4. Deploy.
 
 Or use the CLI: `npx vercel --prod` (after `vercel login`).
+
+## SEO & search ranking
+
+The site includes:
+
+- `robots.txt` and `sitemap.xml` (canonical URL: `https://www.alimentri.com/`)
+- Meta description, Open Graph, and Twitter Card tags
+- JSON-LD structured data (Organization, WebSite, ProfessionalService, FAQPage)
+
+**After deploy, register the site:**
+
+1. [Google Search Console](https://search.google.com/search-console) — add property `https://www.alimentri.com`, verify ownership, submit `https://www.alimentri.com/sitemap.xml`.
+2. [Bing Webmaster Tools](https://www.bing.com/webmasters) — same sitemap URL.
+3. Ensure **www** (or apex) redirects consistently in Vercel → Domains (one canonical host).
+4. Optional: add Google Analytics or [Plausible](https://plausible.io) for traffic insights.
+
+Update `sitemap.xml` `<lastmod>` when you make meaningful content changes.

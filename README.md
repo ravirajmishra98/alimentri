@@ -67,3 +67,19 @@ The site includes:
 4. Optional: add Google Analytics or [Plausible](https://plausible.io) for traffic insights.
 
 Update `sitemap.xml` `<lastmod>` when you make meaningful content changes.
+
+### Sitemap shows “Couldn’t fetch” in Search Console
+
+The sitemap must be reachable at **exactly** the URL you submit. Verify in a browser:
+
+- [https://www.alimentri.com/sitemap.xml](https://www.alimentri.com/sitemap.xml) — should show XML (HTTP **200**)
+- [https://www.alimentri.com/robots.txt](https://www.alimentri.com/robots.txt) — should list the same sitemap URL
+
+**Fix in Search Console:**
+
+1. Use a **URL prefix** property: `https://www.alimentri.com/` (not `http://`, not the bare domain unless you verified Domain property).
+2. Remove the failed sitemap entry (⋮ → Delete).
+3. Wait a few minutes after your latest Vercel deploy, then submit again: `https://www.alimentri.com/sitemap.xml`
+4. If you also verified `https://alimentri.com` (no www), add the same sitemap there—or prefer **one** canonical host (www) everywhere.
+
+“Unknown” type and “Couldn’t fetch” usually mean Google tried before the file existed, the site was down, or the property URL did not match. After a successful read, status becomes **Success** and type **Sitemap** (can take 24–48 hours).

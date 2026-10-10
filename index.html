@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Alimentri — premium software engineering, cloud, and AI solutions for ambitious teams."
+      content="Alimentri is a new software studio helping founders and businesses ship web, cloud, and AI products. Free discovery call — limited founding client slots."
     />
-    <title>Alimentri | Software That Scales With You</title>
+    <meta property="og:title" content="Alimentri | Software studio for what's next" />
+    <meta
+      property="og:description"
+      content="Fresh IT startup. Senior-led builds, transparent process, confidentiality first. Tell us what you're building."
+    />
+    <title>Alimentri | Software Studio — Now Onboarding Clients</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,8 +24,10 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
     <div class="gradient-orb gradient-orb--1" aria-hidden="true"></div>
     <div class="gradient-orb gradient-orb--2" aria-hidden="true"></div>
+    <div class="gradient-orb gradient-orb--3" aria-hidden="true"></div>
 
     <header class="site-header" id="top">
       <div class="container header-inner">
@@ -34,9 +41,10 @@
         </button>
         <nav class="site-nav" id="site-nav">
           <a href="#services">Services</a>
-          <a href="#about">About</a>
+          <a href="#why">Why us</a>
           <a href="#process">Process</a>
-          <a href="#contact" class="nav-cta">Contact</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" class="nav-cta">Get a quote</a>
         </nav>
       </div>
     </header>
@@ -45,179 +53,274 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">IT Software Startup</p>
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              New studio · 2025 · Accepting founding partners
+            </div>
             <h1>
-              Build products that
-              <span class="text-gradient">move markets</span>
+              Turn your product idea into
+              <span class="text-gradient">revenue-ready software</span>
             </h1>
             <p class="hero-lead">
-              Alimentri partners with founders and enterprises to design, ship, and scale
-              cloud-native software—with clarity, velocity, and craftsmanship.
+              Alimentri is a lean IT startup built for teams who need senior engineering without
+              agency overhead. We design, build, and launch—under NDA when you need it.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Start a project</a>
-              <a class="btn btn-ghost" href="#services">Explore services</a>
+              <a class="btn btn-primary" href="#contact">Book free discovery</a>
+              <a class="btn btn-ghost" href="#services">See what we build</a>
             </div>
-            <ul class="hero-stats">
-              <li>
-                <strong>50+</strong>
-                <span>Projects delivered</span>
-              </li>
-              <li>
-                <strong>99.9%</strong>
-                <span>Uptime targets</span>
-              </li>
-              <li>
-                <strong>24/7</strong>
-                <span>Support options</span>
-              </li>
+            <ul class="hero-pills">
+              <li>30-min strategy call, no obligation</li>
+              <li>Fixed-scope or flexible sprints</li>
+              <li>Your code, your IP</li>
             </ul>
           </div>
           <div class="hero-visual reveal reveal-delay">
-            <div class="glass-card hero-card">
-              <div class="hero-card-header">
-                <span class="pulse-dot"></span>
-                Production pipeline
+            <div class="bento">
+              <div class="bento-item bento-item--wide glass-card">
+                <span class="bento-label">What we deliver</span>
+                <p class="bento-title">MVPs, platforms &amp; AI features that users actually adopt</p>
               </div>
-              <div class="code-window">
-                <div class="code-dots">
-                  <span></span><span></span><span></span>
-                </div>
-                <pre><code><span class="c-keyword">const</span> launch = <span class="c-fn">async</span> () => {
-  <span class="c-keyword">await</span> alimentri.<span class="c-fn">ship</span>({
-    stack: [<span class="c-str">'cloud'</span>, <span class="c-str">'ai'</span>, <span class="c-str">'security'</span>],
-    velocity: <span class="c-str">'maximum'</span>
-  });
-};</code></pre>
+              <div class="bento-item glass-card">
+                <span class="bento-icon" aria-hidden="true">⚡</span>
+                <span class="bento-stat">Fast</span>
+                <span class="bento-meta">Weeks, not quarters</span>
               </div>
-              <div class="hero-metrics">
-                <div>
-                  <span class="metric-label">Deploy</span>
-                  <span class="metric-value">12 min</span>
-                </div>
-                <div>
-                  <span class="metric-label">Coverage</span>
-                  <span class="metric-value">94%</span>
-                </div>
-                <div>
-                  <span class="metric-label">Satisfaction</span>
-                  <span class="metric-value">4.9★</span>
-                </div>
+              <div class="bento-item glass-card">
+                <span class="bento-icon" aria-hidden="true">🔒</span>
+                <span class="bento-stat">Private</span>
+                <span class="bento-meta">NDA &amp; confidentiality</span>
+              </div>
+              <div class="bento-item bento-item--tall glass-card">
+                <span class="bento-label">Stack-agnostic</span>
+                <ul class="bento-tags">
+                  <li>Web &amp; mobile</li>
+                  <li>Cloud &amp; APIs</li>
+                  <li>AI &amp; automation</li>
+                  <li>Integrations</li>
+                </ul>
+              </div>
+              <div class="bento-item glass-card bento-item--accent">
+                <span class="bento-label">Founding offer</span>
+                <p class="bento-offer">Priority slots &amp; partner rates for early clients this quarter.</p>
+                <a class="bento-link" href="#contact">Claim a slot →</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="trust">
-        <div class="container">
-          <p class="trust-label">Trusted approach for modern teams</p>
-          <div class="trust-logos">
-            <span>FinTech</span>
-            <span>HealthTech</span>
-            <span>SaaS</span>
-            <span>E-commerce</span>
-            <span>Enterprise</span>
-          </div>
+      <section class="marquee-wrap" aria-hidden="true">
+        <div class="marquee">
+          <span>Product engineering</span>
+          <span>SaaS</span>
+          <span>React · Next.js</span>
+          <span>Node · Python</span>
+          <span>AWS · Azure</span>
+          <span>LLM integrations</span>
+          <span>DevOps &amp; CI/CD</span>
+          <span>UI/UX polish</span>
+          <span>Product engineering</span>
+          <span>SaaS</span>
+          <span>React · Next.js</span>
+          <span>Node · Python</span>
+          <span>AWS · Azure</span>
+          <span>LLM integrations</span>
+          <span>DevOps &amp; CI/CD</span>
+          <span>UI/UX polish</span>
         </div>
       </section>
 
       <section class="section" id="services">
         <div class="container">
-          <div class="section-head reveal">
+          <div class="section-head section-head--center reveal">
             <p class="eyebrow">Services</p>
-            <h2>End-to-end software expertise</h2>
+            <h2>What we can build for you</h2>
             <p>
-              From idea to production, we embed with your team and deliver outcomes—not
-              slide decks.
+              Pick a starting point—or bring a messy brief. We’ll help you scope something
+              shippable and measurable.
             </p>
           </div>
-          <div class="card-grid">
-            <article class="service-card reveal">
+          <div class="card-grid card-grid--services">
+            <article class="service-card service-card--featured reveal">
+              <span class="service-tag">Most requested</span>
               <div class="service-icon" aria-hidden="true">◈</div>
-              <h3>Custom Software</h3>
+              <h3>MVP &amp; product build</h3>
               <p>
-                Web and mobile applications built with maintainable architecture, automated
-                testing, and observability from day one.
+                From wireframe to production: auth, dashboards, payments, admin tools—built to
+                iterate after launch.
               </p>
+              <a class="service-link" href="#contact">Discuss your MVP →</a>
             </article>
             <article class="service-card reveal reveal-delay">
               <div class="service-icon" aria-hidden="true">☁</div>
-              <h3>Cloud & DevOps</h3>
+              <h3>Cloud &amp; DevOps</h3>
               <p>
-                AWS, Azure, and GCP migrations, CI/CD pipelines, infrastructure as code, and
-                cost-optimized scaling.
+                Deployments, monitoring, cost control, and pipelines so your team ships safely
+                every week.
               </p>
+              <a class="service-link" href="#contact">Improve delivery →</a>
             </article>
             <article class="service-card reveal reveal-delay-2">
               <div class="service-icon" aria-hidden="true">✦</div>
-              <h3>AI & Automation</h3>
+              <h3>AI &amp; automation</h3>
               <p>
-                Intelligent workflows, LLM integrations, and data pipelines that respect privacy
-                and compliance.
+                Practical AI: copilots, document flows, chat, and internal tools—with guardrails
+                that fit your data policy.
               </p>
+              <a class="service-link" href="#contact">Explore AI scope →</a>
             </article>
             <article class="service-card reveal reveal-delay-3">
               <div class="service-icon" aria-hidden="true">⬡</div>
-              <h3>Advisory & Audits</h3>
+              <h3>Rescue &amp; advisory</h3>
               <p>
-                Technical due diligence, security reviews, and roadmap planning for investors
-                and leadership.
+                Stuck project, slow codebase, or pre-investor technical review—we diagnose fast
+                and propose a clear plan.
               </p>
+              <a class="service-link" href="#contact">Get a second opinion →</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section-alt" id="about">
-        <div class="container about-grid">
-          <div class="about-copy reveal">
-            <p class="eyebrow">About Alimentri</p>
-            <h2>Engineering with intent</h2>
+      <section class="section section-alt" id="why">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Why Alimentri</p>
+            <h2>Small studio. Big attention.</h2>
             <p>
-              We are a focused IT software startup obsessed with quality delivery. Alimentri
-              blends product thinking with deep engineering so your roadmap stays aligned with
-              business goals.
+              We’re new—and that’s the point. You work directly with the people writing code, not
+              a rotating cast of account managers.
             </p>
-            <ul class="check-list">
-              <li>Senior-led squads, no hand-offs to juniors</li>
-              <li>Transparent sprints and measurable KPIs</li>
-              <li>Security and performance baked in, not bolted on</li>
-            </ul>
           </div>
-          <div class="about-panel reveal reveal-delay">
-            <blockquote>
-              “Alimentri turned our prototype into a production platform in weeks—not
-              quarters.”
-            </blockquote>
-            <cite>— Product lead, B2B SaaS</cite>
+          <div class="why-grid">
+            <article class="why-card reveal">
+              <h3>Senior-led delivery</h3>
+              <p>Architecture, reviews, and implementation from engineers who’ve shipped before—not a bait-and-switch bench.</p>
+            </article>
+            <article class="why-card reveal reveal-delay">
+              <h3>Confidential by default</h3>
+              <p>We don’t publish client logos or case studies without permission. Your roadmap stays yours.</p>
+            </article>
+            <article class="why-card reveal reveal-delay-2">
+              <h3>Founding partner terms</h3>
+              <p>Early clients get flexible engagement models and priority scheduling while we grow our portfolio.</p>
+            </article>
+            <article class="why-card reveal reveal-delay-3">
+              <h3>Outcome-focused sprints</h3>
+              <p>Weekly demos, shared backlog, and honest timelines—so you always know what shipped and what’s next.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="process">
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-copy reveal">
+            <p class="eyebrow">About</p>
+            <h2>A fresh studio with one mission: ship work you’re proud of</h2>
+            <p>
+              Alimentri launched in 2025 as a focused software startup. We’re selectively taking
+              on new partners—startups, SMBs, and teams with a clear problem to solve.
+            </p>
+            <ul class="check-list">
+              <li>Transparent pricing conversation before any commitment</li>
+              <li>Remote-first, async-friendly, documentation included</li>
+              <li>Handover-ready repos, tests, and deployment guides</li>
+            </ul>
+          </div>
+          <div class="offer-panel reveal reveal-delay">
+            <p class="offer-panel-label">Start here</p>
+            <h3>Free discovery call</h3>
+            <p>
+              In 30 minutes we’ll clarify goals, rough timeline, and whether we’re a fit—no sales
+              pressure.
+            </p>
+            <ul class="offer-list">
+              <li>Problem &amp; users</li>
+              <li>Technical options</li>
+              <li>Ballpark scope</li>
+            </ul>
+            <a class="btn btn-primary btn-full" href="#contact">Schedule via form</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="process">
         <div class="container">
-          <div class="section-head reveal">
+          <div class="section-head section-head--center reveal">
             <p class="eyebrow">Process</p>
-            <h2>How we work</h2>
+            <h2>Simple path from hello to launch</h2>
           </div>
           <ol class="process-steps">
             <li class="reveal">
               <span class="step-num">01</span>
               <h3>Discover</h3>
-              <p>Goals, users, constraints, and success metrics—aligned in a single workshop.</p>
+              <p>Free call + follow-up summary. NDA available on request.</p>
             </li>
             <li class="reveal reveal-delay">
               <span class="step-num">02</span>
-              <h3>Design & build</h3>
-              <p>Iterative delivery with weekly demos and continuous integration.</p>
+              <h3>Proposal</h3>
+              <p>Clear scope, milestones, and investment—fixed price or sprint-based.</p>
             </li>
             <li class="reveal reveal-delay-2">
               <span class="step-num">03</span>
-              <h3>Launch & grow</h3>
-              <p>Monitoring, optimization, and optional dedicated support as you scale.</p>
+              <h3>Build &amp; launch</h3>
+              <p>Weekly demos, staging environment, production cutover, and support options.</p>
             </li>
           </ol>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container faq-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2>Questions teams ask before hiring</h2>
+            <p>Still unsure? <a href="#contact">Send a short brief</a>—we reply within one business day.</p>
+          </div>
+          <div class="faq-list reveal reveal-delay">
+            <details class="faq-item">
+              <summary>Are you big enough for my project?</summary>
+              <p>
+                We’re intentionally small—that means faster decisions and direct access to
+                builders. For large multi-team programs we’ll be upfront if a partner network is
+                a better fit.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Can you sign an NDA before we share details?</summary>
+              <p>Yes. We’re happy to sign mutual NDAs before discussing sensitive product plans or data.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What does engagement cost?</summary>
+              <p>
+                It depends on scope. After discovery we quote fixed milestones or monthly sprint
+                blocks. Founding partners often start with a focused MVP or audit engagement.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you show case studies on the site?</summary>
+              <p>
+                Not yet—we respect client confidentiality. We’ll share relevant experience
+                privately when it makes sense.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Where are you based?</summary>
+              <p>Remote-first studio serving clients globally. Primary contact: alimentriai@gmail.com.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container cta-band-inner reveal">
+          <div>
+            <h2>Ready when you are</h2>
+            <p>Limited founding client slots this quarter. Tell us what you’re building.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="#contact">Get a quote</a>
         </div>
       </section>
 
@@ -225,10 +328,10 @@
         <div class="container contact-grid">
           <div class="contact-copy reveal">
             <p class="eyebrow">Contact</p>
-            <h2>Let’s build something remarkable</h2>
+            <h2>Let’s scope your project</h2>
             <p>
-              Tell us about your project. We typically respond within one business day at
-              <a href="mailto:alimentriai@gmail.com">alimentriai@gmail.com</a>.
+              The more context you share, the faster we can respond with next steps. We reply
+              within <strong>one business day</strong>.
             </p>
             <div class="contact-details">
               <div>
@@ -236,31 +339,74 @@
                 <a href="mailto:alimentriai@gmail.com">alimentriai@gmail.com</a>
               </div>
               <div>
-                <span class="detail-label">Focus</span>
-                <span>Software · Cloud · AI</span>
+                <span class="detail-label">Best for</span>
+                <span>MVPs · Modernization · AI features · DevOps</span>
               </div>
             </div>
           </div>
           <form class="contact-form glass-card reveal reveal-delay" id="contact-form" novalidate>
-            <div class="form-row">
-              <label for="name">Name <span aria-hidden="true">*</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+            <div class="form-row form-row--half">
+              <div>
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="email">Work email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
             </div>
             <div class="form-row">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="form-row">
-              <label for="company">Company</label>
+              <label for="company">Company / startup</label>
               <input id="company" name="company" type="text" autocomplete="organization" />
             </div>
-            <div class="form-row">
-              <label for="message">Message <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="form-row form-row--half">
+              <div>
+                <label for="project-type">What do you need?</label>
+                <select id="project-type" name="projectType">
+                  <option value="">Select…</option>
+                  <option value="MVP / new product">MVP / new product</option>
+                  <option value="Feature or integration">Feature or integration</option>
+                  <option value="AI / automation">AI / automation</option>
+                  <option value="Cloud / DevOps">Cloud / DevOps</option>
+                  <option value="Rescue / audit">Rescue / audit</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Select…</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="1–3 months">1–3 months</option>
+                  <option value="3–6 months">3–6 months</option>
+                  <option value="Exploring">Just exploring</option>
+                </select>
+              </div>
             </div>
+            <div class="form-row">
+              <label for="budget">Budget range (optional)</label>
+              <select id="budget" name="budget">
+                <option value="">Prefer not to say</option>
+                <option value="Under $10k">Under $10k</option>
+                <option value="$10k – $25k">$10k – $25k</option>
+                <option value="$25k – $50k">$25k – $50k</option>
+                <option value="$50k+">$50k+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Project brief <span aria-hidden="true">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Goals, users, deadlines, tech stack—whatever you know today."
+                required
+              ></textarea>
+            </div>
+            <p class="form-note">By submitting, you agree we may email you about this inquiry. No spam.</p>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             <button class="btn btn-primary btn-full" type="submit" id="submit-btn">
-              Send message
+              Request discovery call
             </button>
           </form>
         </div>
@@ -273,12 +419,19 @@
           <span class="logo-mark">A</span>
           <span class="logo-text">Alimentri</span>
         </a>
-        <p class="footer-tagline">Premium software for ambitious teams.</p>
+        <p class="footer-tagline">New software studio · Built to ship · 2025</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="mailto:alimentriai@gmail.com">alimentriai@gmail.com</a>
+        </nav>
         <p class="footer-copy">
           © <span id="year"></span> Alimentri. All rights reserved.
         </p>
       </div>
     </footer>
+
+    <a class="sticky-cta" href="#contact">Get a quote</a>
 
     <script src="js/main.js"></script>
   </body>

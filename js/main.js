@@ -66,6 +66,9 @@
     var name = form.name.value.trim();
     var email = form.email.value.trim();
     var company = form.company.value.trim();
+    var projectType = (form.projectType && form.projectType.value) || "";
+    var timeline = (form.timeline && form.timeline.value) || "";
+    var budget = (form.budget && form.budget.value) || "";
     var message = form.message.value.trim();
 
     if (!name || !email || !message) {
@@ -81,7 +84,15 @@
       var res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name, email: email, company: company, message: message }),
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          company: company,
+          projectType: projectType,
+          timeline: timeline,
+          budget: budget,
+          message: message,
+        }),
       });
 
       var data = await res.json().catch(function () {
@@ -103,7 +114,7 @@
       formStatus.classList.add("is-error");
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Send message";
+      submitBtn.textContent = "Request discovery call";
     }
   });
 })();

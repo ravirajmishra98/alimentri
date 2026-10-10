@@ -105,6 +105,9 @@ module.exports = async (req, res) => {
   const name = String(body.name || "").trim();
   const email = String(body.email || "").trim();
   const company = String(body.company || "").trim();
+  const projectType = String(body.projectType || "").trim();
+  const timeline = String(body.timeline || "").trim();
+  const budget = String(body.budget || "").trim();
   const message = String(body.message || "").trim();
 
   if (!name || !email || !message) {
@@ -127,6 +130,9 @@ module.exports = async (req, res) => {
     `Name:    ${name}`,
     `Email:   ${email}`,
     company ? `Company: ${company}` : null,
+    projectType ? `Need:     ${projectType}` : null,
+    timeline ? `Timeline: ${timeline}` : null,
+    budget ? `Budget:   ${budget}` : null,
     "",
     "Message:",
     message,
@@ -137,7 +143,16 @@ module.exports = async (req, res) => {
     .filter(Boolean)
     .join("\n");
 
-  const html = buildContactEmailHtml({ name, email, company, message, receivedAt });
+  const html = buildContactEmailHtml({
+    name,
+    email,
+    company,
+    projectType,
+    timeline,
+    budget,
+    message,
+    receivedAt,
+  });
 
   const mailOptions = {
     from: `"Alimentri Website" <${user}>`,
@@ -177,22 +192,37 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function buildContactEmailHtml({ name, email, company, message, receivedAt }) {
+function buildContactEmailHtml({
+  name,
+  email,
+  company,
+  projectType,
+  timeline,
+  budget,
+  message,
+  receivedAt,
+}) {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
-  const safeCompany = escapeHtml(company);
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
   const replySubject = encodeURIComponent(`Re: Your message to Alimentri`);
   const mailtoEmail = encodeURIComponent(email);
   const mailtoReply = `mailto:${mailtoEmail}?subject=${replySubject}`;
 
-  const companyRow = company
-    ? `
+  function fieldRow(label, value) {
+    if (!value) return "";
+    return `
           <tr>
-            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;width:120px;vertical-align:top;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Company</td>
-            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;font-size:15px;color:#0f172a;">${safeCompany}</td>
-          </tr>`
-    : "";
+            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;width:120px;vertical-align:top;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">${label}</td>
+            <td style="padding:14px 20px;border-top:1px solid #e8ecf4;font-size:15px;color:#0f172a;">${escapeHtml(value)}</td>
+          </tr>`;
+  }
+
+  const extraRows =
+    fieldRow("Company", company) +
+    fieldRow("Need", projectType) +
+    fieldRow("Timeline", timeline) +
+    fieldRow("Budget", budget);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -242,7 +272,7 @@ function buildContactEmailHtml({ name, email, company, message, receivedAt }) {
                     <a href="mailto:${mailtoEmail}" style="color:#0d9488;text-decoration:none;font-weight:500;">${safeEmail}</a>
                   </td>
                 </tr>
-                ${companyRow}
+                ${extraRows}
                 <tr>
                   <td colspan="2" style="padding:20px 20px 8px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Message</td>
                 </tr>

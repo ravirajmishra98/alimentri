@@ -244,7 +244,7 @@ function buildContactEmailHtml({
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="width:44px;vertical-align:middle;">
-                          <img src="https://www.alimentri.com/images/logo-128.png" alt="Alimentri" width="44" height="44" style="display:block;border-radius:10px;" />
+                          <img src="https://www.alimentri.com/images/logo-128.png" alt="Alimentri" width="48" height="48" style="display:block;" />
                         </td>
                         <td style="padding-left:12px;vertical-align:middle;">
                           <div style="font-size:18px;font-weight:700;color:#f8fafc;letter-spacing:-0.02em;">Alimentri</div>

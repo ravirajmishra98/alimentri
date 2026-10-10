@@ -5,4 +5,5 @@ node_modules/
 *.log
 .test-payload.json
 images/logo.png
+images/logo-source.png
 .DS_Store

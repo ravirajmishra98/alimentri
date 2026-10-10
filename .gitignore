@@ -4,4 +4,5 @@ node_modules/
 .vercel
 *.log
 .test-payload.json
+images/logo.png
 .DS_Store

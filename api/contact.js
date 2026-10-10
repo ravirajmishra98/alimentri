@@ -243,7 +243,9 @@ function buildContactEmailHtml({
                   <td>
                     <table role="presentation" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#818cf8);text-align:center;vertical-align:middle;font-weight:800;font-size:18px;color:#042f2e;line-height:40px;">A</td>
+                        <td style="width:44px;vertical-align:middle;">
+                          <img src="https://www.alimentri.com/images/logo-128.png" alt="Alimentri" width="44" height="44" style="display:block;border-radius:10px;" />
+                        </td>
                         <td style="padding-left:12px;vertical-align:middle;">
                           <div style="font-size:18px;font-weight:700;color:#f8fafc;letter-spacing:-0.02em;">Alimentri</div>
                           <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#94a3b8;margin-top:2px;">Website contact</div>
